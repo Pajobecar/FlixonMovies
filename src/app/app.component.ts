@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Host, HostListener } from '@angular/core';
 
 @Component({
   selector: 'app-root',
@@ -6,5 +6,16 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'Nflx';
+  title = 'flixon';
+  navbg: any;
+  @HostListener('document:scroll') scrollover(){
+
+    if(document.body.scrollTop > 0 || document.documentElement.scrollTop > 0){
+    this.navbg = {
+    'background-color':'#000000'
+    }
+    }else{
+    this.navbg = {}
+    }
+  }
 }
